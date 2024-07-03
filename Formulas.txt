@@ -1,0 +1,3 @@
+=GOOGLEFINANCE("Currency:USDUAH") * D3
+
+=ISNUMBER(C2)
