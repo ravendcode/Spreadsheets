@@ -4,10 +4,12 @@ function setProfit() {
   var data = sheet.getDataRange().getValues();
   var count = 0;
   for (var i = 0; i < data.length; i++) {
-    if (data[i][2] != "" && data[i][2] == data[i][9]) {
-      sheet.getRange(i + 1, 4).setValue(data[i][10]);
-      sheet.getRange(i + 1, 5).setValue(data[i][12]);
-      count++;
+    for(var j = 0; j < data.length; j++){
+      if (data[i][2] != "" && data[i][2] == data[j][9]) {
+        sheet.getRange(i + 1, 4).setValue(data[j][10]);
+        sheet.getRange(i + 1, 5).setValue(data[j][12]);
+        count++;
+      }
     }
   }
   if (count > 0) {
