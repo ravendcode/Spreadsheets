@@ -2,11 +2,18 @@
 function setProfit() {
   var sheet = SpreadsheetApp.getActiveSheet();
   var data = sheet.getDataRange().getValues();
+  var count = 0;
   for (var i = 0; i < data.length; i++) {
     if (data[i][2] == data[i][9]) {
-      sheet.getRange(i + 1, 4).setValue(data[i][10])
-      sheet.getRange(i + 1, 5).setValue(data[i][12])
+      sheet.getRange(i + 1, 4).setValue(data[i][10]);
+      sheet.getRange(i + 1, 5).setValue(data[i][12]);
+      count++;
     }
+  }
+  if (count > 0) {
+    Logger.log("Changed %d cells", count);
+  } else {
+    Logger.log("No changes");
   }
 }
 
